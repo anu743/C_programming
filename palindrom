@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+void palin(char *str)
+{
+    char *sp,*ep,ch;
+    int l=strlen(str),i;
+    int val=0;
+
+    sp = str;
+    ep =str+l-1;
+    
+    for(i=0;i<l/2;i++)
+    {
+        if(*sp == *ep)
+         val =1;
+        else
+        {   val =0;
+            break;
+        }
+        sp++;
+        ep--;
+    }
+    
+    if(val == 1)
+    printf("yes");
+    else
+    printf("no");
+    return;
+}
+
+int main()
+{
+    char arr[]= "abcrdcba";
+    palin(arr);
+    printf("\n array %s",arr);
+    return 0;
+}
