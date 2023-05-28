@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+
+void fun(char *str)
+{
+    char *sp,ch;
+    int length = strlen(str);
+    int i=0,c1=0,c2=0,pos =0;
+    sp = str;
+    
+    for(i=0;i<length;i++,sp++)
+    {
+        if(*sp == '(')
+            c1++;
+        else if(*sp == ')')
+            c2++;
+        
+        if(c1 == c2)
+        {
+         printf(" %d  %d\n",c1,c2);
+          pos = i;
+        }
+    }
+    
+    if(c1==0)
+    {
+        printf("C1 is 0\n");
+        pos = length;
+    }
+    printf("%d \t %d  length %d\n",c1,c2,length);
+    printf("pos %d",pos);
+}
+
+int main()
+{
+    char arr[]="(()))(()()())))";
+    fun(arr);
+    return 0;
+}
