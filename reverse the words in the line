@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<string.h>
+
+void reverse(char *start,char *end)
+{
+  char ch;
+  while(start<end)
+  {
+    ch = *start;
+    *start = *end;
+    *end = ch;
+    start++;
+    end--;
+   }
+   
+ }
+
+
+void reverseline(char *str)
+{
+  char *tmp,*wb;
+  tmp = str;
+  wb=str;  
+  while(*tmp)
+  {
+    tmp++;
+    if(*tmp == '\0')
+    {
+     reverse(wb,tmp-1);
+    }
+    else if(*tmp == ' ')
+    {
+      reverse(wb, tmp-1);
+      wb = tmp+1;
+    }
+   }
+   reverse(str,tmp-1);
+}
+
+int main()
+{
+  char arr[]="its my own space";
+
+  printf("%s\n",arr);
+  reverseline(arr);
+  
+   printf("%s",arr);
+  return 0;
+}
