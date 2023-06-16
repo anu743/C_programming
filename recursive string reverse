@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+void reverrecursive(char *str,int start, int end)
+{
+    if(str!=NULL)
+    {
+      //  printf("%s %d %d\n",str,start,end);
+        		char k = str[start];
+		str[start]=str[end];
+		str[end]=k;
+		
+		if(start < end)
+		{
+			start++;
+			end--;
+			reverrecursive(str,start,end);	
+		}
+        
+    }
+    
+    printf("%s\n",str);
+}
+
+int main()
+{
+    char arr[] = "helloworld";
+    
+    reverrecursive(arr,0,strlen(arr)-1);
+
+    return 0;
+}
