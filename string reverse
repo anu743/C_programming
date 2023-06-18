@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+#include<string.h>
+
+void reverse(char *arr)
+{
+    char *sp,*ep;
+    int i,l=strlen(arr);
+    char ch;
+    sp = arr;
+    ep=arr+l-1;
+    
+    for(i=0;i<l/2;i++)
+    {
+        ch = *sp;
+        *sp =*ep;
+        *ep = ch;
+        sp++;
+        ep--;
+    }
+    
+    printf("%s",arr);
+    
+}
+
+int main()
+{
+   
+    char arr[]="helloworld";
+    reverse(arr);
+    return 0;
+}
