@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+union sample
+{
+
+struct {
+    int data;
+}A;
+
+struct {
+    int b;
+    float f;
+}B;
+};
+
+
+
+int main()
+{
+  
+   union sample s;
+   s.A.data =10;
+   s.B.f =20.0;
+   printf("%d %f",s.B.b,s.B.f);
+    return 0;
+}
