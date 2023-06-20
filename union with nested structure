@@ -2,8 +2,7 @@
 
 union sample
 {
-
-struct {
+struct{
     int data;
 }A;
 
@@ -17,8 +16,7 @@ struct {
 
 int main()
 {
-  
-   union sample s;
+     union sample s;
    s.A.data =10;
    s.B.f =20.0;
    printf("%d %f",s.B.b,s.B.f);
