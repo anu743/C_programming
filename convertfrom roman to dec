@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+#include<string.h>
+int valueof(char ch)
+{
+    switch(ch)
+    {
+        case 'I':
+            return 1;
+        case 'X':
+            return 10;
+        default:
+            printf("wrong value\n");
+
+    }
+
+    return 0;
+}
+
+void romantodec(char *str)
+{
+
+    int res=0,value,value2;
+    
+    int i;
+    
+    for(i=0;i<strlen(str);i++)
+    {
+        value = valueof(str[i]);
+        
+        if(i+1<strlen(str))
+        {
+            value2=valueof(str[i+1]);
+            
+            if(value >= value2)
+            {
+                res=res+value;
+            }
+            else
+            {
+                res=res+value2-value;
+                i++;
+            }
+            
+        }
+        else
+        {
+            res= res+value;
+        }
+    }
+    printf(" value %d\n",res);
+}
+
+int main()
+{
+   char arr[] = "XIXII";
+   
+   romantodec(arr);
+
+    return 0;
+}
