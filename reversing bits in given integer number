@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+void fun(int num)
+{
+   unsigned int no_of_bits = sizeof(num)*8;
+  unsinged int reverse =0;
+  int i;
+
+  for(i=0;i<no_of_bits;i++)
+  {
+    if(n &(1<<i))
+    {
+      reverse |= (1<<((no_of_bits-1)-i);
+    }
+  }
+  printf("reversed num is %d\n",reverse);
+}
+int main()
+{
+  int num=1;
+  fun(num);
+  return 0;
+}
