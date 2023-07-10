@@ -10,6 +10,7 @@ int main()
       printf("entered num is positive");
   else if(sign == -1)
       printf("entered num is negative");
-
+  else
+      printf("entered num is zero");
   return 0;
 }
