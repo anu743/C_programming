@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main()
+{
+  int n=10;
+  // set bit in 2nd position
+  n |= (1<<2);
+  printf("%d\n",n);
+
+  // check if bit in 2nd bit 
+  if(n & (1<<2))
+    printf(" 2nd bit set\n");
+  else
+    printf("2nd bit not set\n");
+
+  // clear the bit in 2nd place 
+  n &= ~(1<<2);
+  printf("%d\n",n);
+
+  //toggle the 2nd bit in the number
+
+  n ^= (1<<2);
+  printf("%d\n",n);
+
+  return 0;
+  }
+  
+  
+
+ 
