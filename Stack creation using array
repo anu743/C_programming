@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+strcut Stack
+{
+  int top;
+  unsigned capacity;
+  int *array;
+};
+
+void psuh(struct Stack *stack,int item)
+{
+  if(stack->top == stack->capacity-1)
+  {
+    printf("stack is full");
+    return;
+  }
+  else
+  {
+    stack->araay[++stack->top] = item;
+    printf("item pushed\n");
+  }
+}
+void pop(struct Stack *stack)
+{
+  if(stack->top == -1)
+  {
+    printf("stack is empty\n");
+    return;
+  }
+  else
+  {
+    printf("poped item %d\n",stack->araay[stack->top--]);
+  }
+}
+
+struck Stack* creatstack(unsinged capacity)
+{
+  struct Stack *stack = (struct Stack*)malloc(sizeof(struct Stack));
+  stack->top =-1;
+  stack->capacity = capacity;
+  stack->array = (int*)malloc(sizeof(int)*capacity);
+  return stack;
+}
+
+int main()
+{
+  struct Stack *sample = createstack(5); //creating stack with 5 elements capacity
+  push(sample,10);
+  push(sample,20);
+  push(sample,30);
+  pop(sample);
+  return 0;
+}
