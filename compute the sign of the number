@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+int main()
+{
+  int num;
+  int sign;  
+  printf("enter the nmber\n");
+  sign = (sign>0)-(sign<0);
+  if(sign == 1)
+      printf("entered num is positive");
+  else if(sign == -1)
+      printf("entered num is negative");
+
+  return 0;
+}
