@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct queue
+{
+    int front, rear,size;
+    unsigned capacity;
+    int *array;
+    
+};
+
+struct queue* createqueue(unsigned capacity)
+{
+    struct queue *q=(struct queue*)malloc(sizeof(struct queue));
+    q->capacity =capacity;
+    q->front = q->size=0;
+    q->rear = capacity-1;
+    q->array = (int*)malloc(sizeof(int)*5);
+    
+    return q;
+}
+
+void enqueue(struct queue *q,int item)
+{
+    if(q->size ==q->capacity)
+    {
+        printf("queue is full\n");
+        return;
+    }
+    else
+    {
+        q->array[++q->front]=item;
+    }
+    
+}
+
+int main()
+{
+    struct queue *q = createqueue(5);
+    printf("queue created\n");
+    enqueue(q,10);
+    return 0;
+}
