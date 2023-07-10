@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+strcut stack
+{
+  int top; // 4 bytes
+  unsigned capacity; //4 bytes
+  int *array; // 8 bytes
+};
+
+int main()
+{  
+  struct stack s1;
+  printf("%ul\n",sizeof(s1));  // 16 bytes
+
+    s1.array = (int *)malloc(20);
+    
+   
+  
+    printf("\n%lu\n",sizeof(s1)); // 16 bytes
+    printf("%ld\n",sizeof(s1.array)); //8 bytes
+    
+  printf("%ul\n",sizeof(struct stack)); //16 bytes
+  return 0;
+}
