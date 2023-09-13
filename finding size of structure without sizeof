@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+struct simple
+{
+    int a;
+    float b;
+    double d;
+    char c;
+    
+};
+
+int main()
+{
+    struct simple s[2]={0};
+    
+    struct simple *ptr1=NULL;
+    struct simple *ptr2=NULL;
+
+    ptr1=&s[0];
+    ptr2=&s[1];
+
+    int size = (char *)ptr2-(char *)ptr1;
+    printf("siex %d",size);
+
+    
+    return 0;
+}
