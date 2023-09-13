@@ -22,3 +22,6 @@ int main()
   printf("%ul\n",sizeof(struct stack)); //16 bytes
   return 0;
 }
+// sometimes the size of the struct is differ from the indivial members size because in struct sometimes c compliler add the padding elements
+// if the struct memeber perevious is larger data type then next on , then padding will not be added , otherwise padding will be addded
+// int a, char b; // here padding 1 byte will be added
