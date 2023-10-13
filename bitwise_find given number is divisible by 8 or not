@@ -1,0 +1,14 @@
+#include<stdio.h>
+
+int main()
+{
+    int n=40;
+    n=n&7;
+    
+    if(n == 0)
+        printf("divisible by 8");
+    else
+        printf("no");
+
+    return 0;
+}
