@@ -1,0 +1,123 @@
+#include<stdio.h>
+#include <stdint.h>
+
+int main()
+{
+    int n=10,i1=4,j=7;
+    n=n|(1<<3);
+    printf("%d\n",n);
+    
+    n=n& ~(1<<2);
+    printf("%d\n",n);
+    
+    //how to toggle particular bit 
+    
+    n= n^ (1<<2);
+    printf("%d\n",n);
+    
+    n=n^(1<<1);
+    printf("%d\n",n);
+    
+    //how to toggle range of bit from i to j
+    n=256;
+    n =n ^ ((1<<(j-i1)+1)-1)<<i1;
+    
+    // check particular bit set or not 
+    n=10;
+    if(n & (1<<2))
+        printf("set\n");
+    else
+        printf("not set\n");
+        
+    //#define ByteSwap16(Value) ((Value & 0x00FF) << 8) | ((Value & 0xFF00) >> 8) 
+    
+    uint16_t i =10;
+    i = ((i& 0x00FF)<<8) | ((i & 0x00FF)>>8);
+    printf("%d\n",i);
+    
+    // find the number is odd or even
+    n=8;
+    if(n &1)
+        printf("odd\n");
+    else
+        printf("even\n");
+        
+    //clear the last set bit of the number
+    
+    n=10;
+    printf("clear last set bit %d\n",(n&(n-1)));
+    
+    //check if the number is power of 2 
+    
+    n=16;
+    if(n&(n-1))
+        printf("number is not power of 2\n");
+    else
+        printf("number is power of 2\n");
+        
+    //count the number of set bits in the number 
+    
+    n=15;
+    unsigned int count=0;
+    while(n!=0)
+    {
+        count++;
+        n=n&(n-1);
+    }
+    printf("%d\n",count);
+    
+    // swap 2 bits at the given position in the integer
+    
+    n=15;
+    i=2;
+    j=3;
+    
+    n ^= (1<<i); // 1111 0011 this is not swapping this is toggling 
+    n ^= (1<<j);
+    printf("after swapping %d\n",n);
+    
+    // thisis the correct way of swapping
+    n=22; // 10110 -> 11010 (26)
+    int temp=n;
+    int poi=0,poj=0;
+    if(n & (1<<i))
+        poi=1;
+    else
+        poi=0;
+    
+    if(n & (1<<j))
+        poj=1;
+    else
+        poj=0;
+    
+    printf("temp before swap %d poi %d poj %d\n",temp,poi,poj);
+    if(poi & poj)
+    {
+        printf("%d\n",temp);
+    }
+    else if(poi|poj)
+    {
+        temp ^= (1<<i);
+        temp ^= (1<<j);
+        printf("temp %d\n",temp);
+    }
+    else
+        printf("temp %d\n",temp);
+    
+    
+    // swap all even and odd bits
+    
+    n=10; //1010 ->0101 
+    //0111 -> 1000
+    //0110 -> 1010 
+    
+    //  swap all even and odd ( ( number & 0xAAAAAAAA ) >> 1 ) | ( ( number & 0x55555555 ) << 1 );
+        
+    
+    n= ((n&0xAAAAAAAA)>>1)|((n&0x55555555)<<1);
+    printf("%d\n",n); //5 0101 from 1010
+    
+    
+    
+    return 0;
+}
