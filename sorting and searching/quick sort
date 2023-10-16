@@ -1,0 +1,46 @@
+#include<stdio.h>
+
+void qsort(int a[5],int lb,int ub)
+{
+    int pivot,temp,i,j,flag=0;
+    
+    if(lb<ub)
+    {
+        i=lb;
+        j=ub;
+        
+        pivot=a[i];
+        while(flag==0)
+        {   i++;
+            while(a[i]<pivot)
+                i++;
+            while(a[j]>pivot)
+                j--;
+            
+            if(i<j)
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+            else
+                flag=1;
+            
+        }
+        temp=a[j];
+        a[j]=a[lb];
+        a[lb]=temp;
+         qsort(a,lb,j-1);
+         qsort(a,j+1,ub);
+    }
+    
+}
+
+int main()
+{
+    int a[5]={20,30,10,29,210};
+    qsort(a,0,4);
+    for(int i=0;i<5;i++)
+        printf("%d\t",a[i]);
+    
+}
