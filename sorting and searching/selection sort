@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int main()
+{
+    int a[7]={10,48,232,13,43,1,2};
+    int i,j,sm=0,temp;
+    for(i=0;i<7;i++)
+    {   
+        sm=i;
+        for(j=i+1;j<7;j++)
+        {
+            if(a[sm]>a[j])
+                sm=j;
+        }
+        temp=a[i];
+        a[i]=a[sm];
+        a[sm]=temp;
+    }
+    for(i=0;i<7;i++)
+        printf("%d\t",a[i]);
+    return 0;
+}
