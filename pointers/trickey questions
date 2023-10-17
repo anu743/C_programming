@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+int main()
+{
+    int i=10;
+    void *p=&i;
+    printf("%f\n",*(float *)p); // 0.000000
+    printf("%d\n",*(int *)p); // 10
+    return 0;
+}
+------------------------------------------------
+
+#include<stdio.h>
+
+void foo(int **p);
+
+int main()
+{
+    int i=10;
+    int *const p=&i;
+    
+    foo(&p);
+    printf("%d\n",*p); //21
+    return 0;
+}
+
+void foo(int **p)
+{
+    
+    int j=21;
+    *p=&j;
+    printf("%d\n",**p); //21
+}
+
+// since its constant pointer value can be changed but not the address.
+-----------------------------------------------------
