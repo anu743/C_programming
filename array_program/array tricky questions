@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+int main()
+{
+    int arr[3][3]={1};
+    printf("%d\n",arr);
+    printf("%d\n",arr+1);
+   // printf("%d\n",*(arr)); -- these are giving negetive addr value
+  // printf("%d\n",*(arr+1));
+    printf("%d\n",&arr); // prints addr only
+    
+    char str[11]="Aticleworldhfgnf";
+    printf("%s\n",str); // behaviour is unexpected because array out of bounds but sometimes it takes the 11 characters and prints it.
+    
+}
