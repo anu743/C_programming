@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+struct sample
+{
+    int x,y;
+};
+
+// const struct 
+
+const struct construct
+{
+    int x,y;    
+}c={10.20};
+
+int main()
+{
+    struct sample obj={10,20};
+    obj.x=20; // this is okay
+    const struct sample obj1={30,40};
+    // obj1.x=50; this is not applicable
+   //  c.x=20; // this will throuw the error :  error: assignment of member ‘x’ in read-only object
+    
+    const struct construct c1={20,60};
+    printf("%d\n",c1.x);
+    c1.x=30; // this will fail because we cannt assign the value
+    printf("%d",c1.x);
+  
+    const struct construct d1; // this doesnt give error but we cannt assign the values later
+    d1.x=40; // this also will through the error
+      
+    struct construct e1; // this is normal constant
+    e1.x=40; // this is working 
+    printf("\n%d",e1.x);
+  
+    return 0;
+}
