@@ -1,0 +1,18 @@
+#include<stdio.h>
+
+int main()
+{
+    int num=10,reverse_bits=0;
+    int n=num;
+    while(n>0)
+    {
+        reverse_bits=reverse_bits<<1;
+        if(n&1 ==1)
+        {
+            reverse_bits =reverse_bits ^1;
+        }
+        n=n>>1;
+    }
+    printf("%d",reverse_bits);
+    return 0;
+}
