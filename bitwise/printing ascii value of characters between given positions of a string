@@ -1,0 +1,42 @@
+/*
+ * C Program takes Byte as Input and returns all the Bits between 
+ * given Positions
+ */
+#include <stdio.h>
+#include <string.h>
+ 
+int main (int argc, char *argv[])
+{
+	int a = 0, b = 0, temp = 0, i = 0, countCast = 0;
+ 
+	char BYTE_HERE[8];
+	int FULL_BYTE[8];
+ 
+	printf ("Enter the BYTE:  \n");
+	gets(BYTE_HERE);
+ 
+	if (strlen (BYTE_HERE) < 8) {
+		printf ("Enter a full 8-bit value.\n");
+		return 0;
+	}
+ 
+	printf ("\nEnter the positions a and b : \n");
+	scanf ("%d %d", &a, &b);
+ 
+	// copy from character array to integer array
+	for (i = 0; i <	 8; i++)
+	{
+			// convert the character to integer
+			FULL_BYTE[i] = BYTE_HERE[i] - '0';
+ 
+	}
+ 
+	// just print the bits
+	for (i = a; i <= b; i++)
+	{
+		printf ("%d ", FULL_BYTE[i]);
+	}
+	printf("\nBits between positions a and b are:\n");
+ 
+	return 0;
+}
