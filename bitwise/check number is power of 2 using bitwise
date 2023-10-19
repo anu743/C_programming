@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int power_of(int num)
+{
+    int count=0,shiftnum=num, result=0;
+    for(int i=0;i<32;i++)
+    {
+        shiftnum=shiftnum>>1;
+        result = shiftnum &1;
+        if(result ==1)
+            count++;
+    }
+
+    if(count%2 == 1)
+        return 1;
+    else
+        return 0;
+}
+int main()
+{
+    int num=16;
+    printf("%d",power_of(num));
+    return 0;
+    
+}
