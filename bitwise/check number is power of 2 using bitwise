@@ -1,5 +1,7 @@
 #include<stdio.h>
-
+// flag = (x && (!(x&(x-1));
+// if(flag ==1) yes
+// below is long process
 int power_of(int num)
 {
     int count=0,shiftnum=num, result=0;
