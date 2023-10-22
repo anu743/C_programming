@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main()
+{
+    int a=10,b=-10;
+    int check;
+    check= (a^b);
+    printf("%d\n",check); // check is 0 for same sign and 1 for opposite sign
+    //check=(check<0);
+    if(check)
+        printf("opposite");
+    else
+        printf("same");
+        
+    return 0;
+}
