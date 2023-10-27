@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+
+
+void fun(char *str)
+{
+    int l=strlen(str);
+
+    for(int i=0;i<l;i++)
+    {
+        printf("%c",*(str+i));
+    }
+    printf("\nafter for loop\n");
+    
+    *(str+l-2) = 'S';
+    printf("\n%s",str);  // we cannt modify the string which is pointed by a pointer without allocating the memory , because it will be store in the read-inly memory
+    printf("\nafter print of str");
+}
+
+int main()
+{
+    char *str="hello";
+    printf("%s\n",str);
+    fun(str);
+    return 0;
+}
