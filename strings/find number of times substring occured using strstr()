@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<string.h>
+
+
+int main()
+{
+    char *str="hello i will tell you one sectre, you tell to your friend ll";
+    char *str2="ll";
+    
+    char *temp = str;
+    int count =0;
+    int l=strlen(str2); // strstr() return the matching position of the substring
+    
+    while(strstr(temp,str2))
+    {
+        count++;
+        temp=strstr(temp,str2);
+        temp = (temp+l);
+       // printf("%s\n",temp);
+      }
+
+    printf("%d",count);
+    return 0;
+}
