@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    char str[]="hello hi how hi";
+    char strsub[]="hi";
+    
+    int n=strlen(str);
+    int m=strlen(strsub);
+    int count=0;
+    for(int i=0;i<n-m+1;i++)
+    {
+        int j=0;
+        for(j=0;j<m;j++)
+        {
+            if(str[i+j]!=strsub[j])
+            break;
+        }
+        
+        if(j==m)
+        {
+            count++;
+        }
+    }
+    
+    printf("no.of times found the substring %d",count);
+    return 0;
+}
