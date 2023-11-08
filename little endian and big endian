@@ -1,0 +1,48 @@
+little endian : i=0x01234567
+    67 45 23 01
+big endian : 
+    01 23 45 56
+big endian is dominant in ordering network protocols 
+little endian is dominant in ordering in processor architectures such as x86, ARM,
+
+when we try to share memory content among the computers using different endians will cause some issues.
+we define endianness as the order of bytes inside a word of data stored in computer memory.
+big-endian keeps the most significant byte of a word at the smallest memory location and the least significant byte at the largest. 
+
+---------------------------
+#include <stdio.h>
+
+void fun(char str[],int size)
+{
+ 
+ for(int i=0;i<size;i++)
+ {
+    printf("%d\t",str[i]);
+ }
+
+}
+
+int main()
+{
+    int i=0x012345;
+    
+    fun((char *)&i,sizeof(i));
+    return 0;
+}
+=============================================
+#include <stdio.h>
+
+int main()
+{
+    unsigned int i=10;
+    char *c = (char *)&i;
+    
+    printf("%c",*c); // nothing print here
+    printf(" %d",*c); //10
+    if(*c)
+        printf("little endina");
+    else
+        printf("big endian\n");
+    return 0;
+}
+
