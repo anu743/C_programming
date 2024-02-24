@@ -31,6 +31,79 @@ void foo(int **p)
     *p=&j;
     printf("%d\n",**p); //21
 }
-
+// here the value is able to change because the pointer is constant pointer but we passed it to the function foo()and it stored in normal variable
+// inside foo() the value can be changed , if we are collected as foo(int *const *p) here we cannt copy &j to *p, check below one
 // since its constant pointer value can be changed but not the address.
 -----------------------------------------------------
+#include<stdio.h>
+
+void foo(int * const *p)
+{
+    int j=20;
+    *p=&j; // this line throw an error : error: assignment of read-only location ‘*p’
+}
+
+int main()
+{
+    int i=10;
+    int const *p;
+    p=&i;
+    printf("%d %d\n",i,*p);
+    foo(&p);
+    printf("%d\n",*p);
+    return 0;
+}
+
+=-------------------------------------------------------
+
+#include<stdio.h>
+
+void foo(int const **p)
+{
+    int j=20;
+    *p=&j; // this works fine because here const **P is constant , not *p , *p can be changed , 
+
+int main()
+{
+    int i=10;
+    int const *p;
+    p=&i;
+    printf("%d %d\n",i,*p); // 10 10
+    foo(&p);
+    printf("%d\n",*p); //20
+    return 0;
+}
+------------------------------------------------------------------
+===================================================
+
+#include<stdio.h>
+
+void foo(int const **p)
+{
+    int j=20;
+    *p=&j; // this works fine because here const **P is constant , not *p , *p can be changed , 
+}
+int main()
+{
+    int i=10,k=30;
+    int const *p;
+    int *const q=&i;
+  
+    p=&i;
+    printf("%d %d %d\n",i,*p,*q); // 10 10 10
+    
+    foo(&p);
+    printf("%d\n",*p); //20
+    
+    p=&k;
+    printf("%d\n",*p); // 30 will be printed becuase *p is constant not p , address can be changed
+    
+   // *p=k; // this line throwing error: assignment of read-only location ‘*p’
+    printf("%d\n",*p);
+    
+  //  q=&k; // this line is throwing an error :assignment of read-only variable ‘q’
+    printf("%d\n",*q);
+    return 0;
+}
+// here infront of what the const keyword will be there only that will be constant remaining can be changed , and if we pass to 
+// as function parameters , we need to careful while collecting them as well in function prototype
