@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    char str[]="Annapurnareddy";
+    char str1[]="aln";
+
+    int l1=strlen(str);
+    int l2=strlen(str1);
+    char str3[l1];
+    int flag=0;
+    int k=0;
+    for(int i=0;i<l1;i++)
+    {
+        flag=0;
+        for(int j=0;j<l2;j++)
+        {
+            if(str[i]==str1[j])
+                flag=1;
+
+        }
+        if(flag!=1)
+        {
+            str3[k]=str[i];
+            k++;
+        }
+    }
+   // str3[k]='\0';
+   
+   for(int l=0;l<l1;l++)
+   {
+      // printf("%c",str[l]);
+   }
+   
+   printf("%d\n",k);
+   for(int i=0;i<k;i++)
+   {
+       printf("%c",str3[i]);
+   }
+   printf("\n");
+    printf("%s\n",str3); // this printing the garbage value for the remaining character from l1 length
+    return 0;
+}
