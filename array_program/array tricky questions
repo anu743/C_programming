@@ -5,11 +5,11 @@ int main()
 {
 
     int arr[3][3]={1};
-    printf("%d\n",arr);
-    printf("%d\n",arr+1);
-    //printf("%d\n",*(arr)); -- these are giving negetive addr value
+    printf("arr : %d\n",arr);
+    printf("arr+1: %d\n",arr+1);
+   // printf("%d\n",*(arr)); -- these are giving negetive addr value
   //  printf("%d\n",*(arr+1));
-    printf("%d\n",&arr); // prints addr only
+    printf("%d\n",&arr); // prints addr only similaryl arr
     printf("%d\n",sizeof(arr)); // arr defines the whole array
     printf("%d\n",sizeof(&arr)); // &arr  -- this value is 8 and fixed doesn't know the reason
 
