@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+void fun(void)
+{
+    printf("inside fun\n");
+}
+
+void fun2(void (*p)())
+{
+    printf("inside fun2\n");
+    p();
+}
+int main()
+{
+    void (*pfun)();
+    pfun=fun;
+    fun2(pfun);
+    return 0;
+    
+}
