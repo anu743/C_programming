@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+struct node
+{
+    int data;
+    struct node *next;
+    struct node *prev;
+};
+
+void push(struct node **head,int data)
+{
+    struct node *newnode=(struct node *)malloc(sizeof(struct node));
+    newnode->data=data;
+    newnode->next=NULL;
+    newnode->prev=NULL;
+    if((*head)== NULL)
+    (*head)=newnode;
+    else
+    {
+        newnode->next=(*head);
+        (*head)->prev=newnode;
+        (*head)=newnode;
+    }
+    
+}
+void printlist(struct node *head)
+{
+    while(head!=NULL)
+    {
+        printf("%d->",head->data);
+        head=head->next;
+    }
+   //printf("%d",head->data);
+}
+
+int main()
+{
+    struct node *head;
+    push(&head,1);
+    push(&head,2);
+    push(&head,3);
+    
+    printf("list is\n");
+    printlist(head);
+    return 0;
+}
