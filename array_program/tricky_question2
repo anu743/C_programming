@@ -2,7 +2,7 @@
 
 int main()
 {
-    int arr[5]={0};
+    int arr[5]={1,2,3,4,5};
     printf("%u\n",arr);
     printf("%u\n",*arr);
     printf("%u\n",arr+1);
