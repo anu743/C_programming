@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void fun(void)
+void fun(void) // if we dont mention the void here then the compiler will be confused about the number of arguments it takes 
 {
     printf("inside fun\n");
 }
