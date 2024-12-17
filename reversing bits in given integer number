@@ -21,3 +21,29 @@ int main()
   fun(num);
   return 0;
 }
+
+---------------------------
+
+reversing the digits in the number 1234 -> 4321
+
+#include<stdio.h>
+
+int main()
+{
+    int num=1234;
+    
+    int reverse=0;
+    
+    while(num>0)
+    {
+        reverse=(reverse*10) + (num%10);
+        num=num/10;
+    }
+    
+    printf("%d",reverse);
+    
+    return 0;
+    
+}
+
+
