@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+struct node * insert(struct node *new_node,int data)
+{
+    struct node *node=(struct node *)malloc(sizeof(struct node));
+    node->data = data;
+    node->next=NULL;
+    if(new_node == NULL)
+    {
+        new_node=node;
+        
+    }
+    else
+    {
+        node->next=new_node;
+        new_node=node;
+        
+    }
+    return new_node;
+}
+
+int main()
+{
+    struct node *new_node;
+    new_node=insert(new_node,10);
+    new_node=insert(new_node,20);
+    
+    while(new_node != NULL)
+    {
+        printf("%d ->",new_node->data);
+        new_node=new_node->next;
+    }
+    printf("NULL");
+    return 0;
+}
