@@ -21,6 +21,8 @@ int main()
     for(j=0;j<COL;j++)
     {
       a[i][j]=++k;
+      // scanf("%d",&a[i][j]); we cann't read the value into pointer directly because it stores the address of a variable,
+      // instead of value , this will throw an error.
       
      }
    }
