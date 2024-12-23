@@ -5,13 +5,14 @@ int main()
 {
 
     int arr[3][3]={1};
-    printf("arr : %d\n",arr);
-    printf("arr+1: %d\n",arr+1);
-   // printf("%d\n",*(arr)); -- these are giving negetive addr value
-  //  printf("%d\n",*(arr+1));
+    printf("arr : %u\n",arr);
+    printf("arr+1: %u\n",arr+1);
+    printf("*arr %u\n",*(arr)); //-- %u unsigned integer this give the proper address value. and *(arr) and arr are give the address only because this is 2d array
+    printf("*(arr+1) %d\n",*(arr+1));
     printf("%d\n",&arr); // prints addr only similaryl arr
     printf("%d\n",sizeof(arr)); // arr defines the whole array
     printf("%d\n",sizeof(&arr)); // &arr  -- this value is 8 and fixed doesn't know the reason
+
 
     char str[11]="Aticleworldhfgnf";
     printf("%s\n",str); // behaviour is unexpected because array out of bounds but sometimes it takes the 11 characters and prints it.
