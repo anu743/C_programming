@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+int fun(int i){
+    printf("inside fun\n");
+    return (i+10); 
+}
+
+int fun1(int (*fp)(int))
+{
+    int val;
+    printf("inside fun1\n");
+    val=fp(10);
+    return val;
+}
+
+int main()
+{
+    int (*p)(int);
+    int value;
+    p=fun;
+    value=fun1(p);
+    printf("value %d\n",value);
+    return 0;
+}
