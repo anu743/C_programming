@@ -26,7 +26,10 @@ void reverse(char *arr)
 int main()
 {
    
-    char arr[]="helloworld";
+    char arr[]="helloworld"; // we cannt' declare this as char *arr="helloworld" and send to reverse function 
+// becase char *arr will be pointing to a constant string ajnd when we do *sp=*ep; here we are trying to modify the constant string
+// this will throw an error and program might halt.
+
     reverse(arr);
     return 0;
 }
