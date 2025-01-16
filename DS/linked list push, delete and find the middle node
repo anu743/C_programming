@@ -1,0 +1,124 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+//void push(struct node** head,int data);
+//void printList(struct node* head);
+//int findMiddleNodeData(struct node* head);
+//int findMiddleNodeEntry(struct node *head);
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+void main()
+{
+	struct node *head = NULL;
+	int c,data;
+	while(1){
+		printf("Enter your string choice\n");
+		printf("1.Push\n2.FInd middle Node\n3.Find middle node entry\n4.Delete middle node\n5.Print list\n6.Exit\n");
+		scanf("%d",&c);
+		switch(c)
+		{
+			case 1:
+				printf("Enter the elements:");
+				scanf("%d",&data);
+				push(&head,data);
+			break;
+			case 2:
+				findMiddleNodeData(head);
+			break;
+			case 3:
+				findMiddleNodeEntry(head);	
+			break;
+			case 4:
+				deleteMiddleNode(&head);	
+			break;
+			case 5:
+				printList(head);
+			break;
+			case 6:
+				exit(0);
+			break;
+			default:
+				printf("Wrong choice\n");
+			break;
+		}
+	}
+}
+void push(struct node** head,int data)
+{
+	struct node *new = malloc(sizeof(struct node));
+	new->data = data;
+	new->next = *head;
+	*head = new;
+}
+void printList(struct node* head)
+{
+	struct node *tmp = head;
+	printf("Linked list elements:\t");
+	while(tmp != NULL)
+	{
+		printf("%d\t",tmp->data);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
+int findMiddleNodeData(struct node* head)
+{
+	struct node *slow,*fast;
+	slow = head;
+	fast = head;
+	while(fast != NULL && fast->next != NULL)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+	}	
+	printf("Middle node:%d\n",slow->data);
+	
+	return slow->data;
+}
+
+void deleteMiddleNode(struct node** head)
+{
+	int middleNode = findMiddleNodeEntry( *head );
+	printf("Delete MIddle node entry:%d\n",middleNode); 
+	struct node *first,*prev;
+	int count = 0;
+	first = *head;
+	prev = NULL;
+	while(count < middleNode)
+	{
+		prev = first;
+		first = first->next;
+		count++;
+	}
+	
+	prev->next = first->next;
+	free(first);
+	
+}
+int findMiddleNodeEntry(struct node* head)
+{
+	struct node *slow,*fast;
+	slow = head;
+	fast = head;
+	while(fast != NULL && fast->next != NULL)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+	}	
+	
+	struct node *tmp = head;
+	int count = 0;
+
+	while(slow->data != tmp->data)
+	{
+		++count;
+		tmp = tmp->next;
+	}
+	printf("Middle node Entry:%d\n",count);
+	return count;
+}
