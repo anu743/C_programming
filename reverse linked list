@@ -13,3 +13,21 @@ void function(node *head)
     
     head = prev;
 }
+
+
+void recursiveRevLinkedList(struct node **head)
+{
+	if(*head != NULL)
+	{
+		struct node *first,*rest;
+		first = *head;
+		rest = first->next;
+		
+		if(rest==NULL)
+			return;
+		recursiveRevLinkedList(&rest);
+		first->next->next = first;
+		first->next = NULL;
+		*head = rest;
+	}		
+}
