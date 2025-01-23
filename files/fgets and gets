@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include<string.h>
+
+
+int main()
+{
+    char str[10];
+    fgets(str,10,stdin); // if we give input string more than 10 characters , it takes upto 10 cahracters and remainng will be ignored
+    //gets(str)// if we give the input string more than 10 characters then, program will crash with stack overflow , stack smash
+    
+    printf("%s\n",str);
+        printf("Hello World");
+
+    return 0;
+}
