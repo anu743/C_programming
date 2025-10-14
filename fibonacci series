@@ -23,3 +23,37 @@ int main()
 
     return 0;
 }
+
+----------
+#include<stdio.h>
+
+int main()
+{
+    int t1=0,t2=1;
+    
+    int nextterm =t1+t2;
+    int n;
+    printf("enter the number of series needs to be printed");
+    
+    scanf("%d",&n);
+    
+    if(n==0)
+        printf("nothing");
+    else if(n == 1)
+        printf("%d\t",t1);
+    else if(n==2)
+        printf("%d %d\t",t1,t2);
+    else if(n>2)
+    {
+        printf("%d\t %d\t",t1,t2);
+        for(int i=2;i<n;i++)
+        {
+            printf("%d \t",nextterm);
+            t1 =t2;
+            t2=nextterm;
+            nextterm =t1+t2;
+        }
+    }
+   
+    return 0;
+}
