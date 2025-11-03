@@ -3,6 +3,7 @@ void function(node *head)
   node *current,*prev,*next;
   
   current = head;
+ prev = NULL;
   while(current!=NULL)
   {
       next = current->next;
